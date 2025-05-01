@@ -8,6 +8,7 @@ import {
   ScrollView,
   TextInput
 } from 'react-native';
+import { BEARER_TOKEN, ENTITY_ID, ACCOUNT_ID } from '@env';
 
 export default function TransactionsScreen() {
   const [categorized, setCategorized] = useState(null);
@@ -25,13 +26,13 @@ export default function TransactionsScreen() {
       const response = await fetch('https://sandbox.leantech.me/data/v1/transactions', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer eyJraWQiOiI2NGY4OWMxNy1lYjVkLTQ1NjMtODBkZS1iYzZmNDE0NzM2MGQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0NTk1ODg5Zi1kNGFiLTQ5MmQtOWU3OS1lZWEzMjk4YTNhNGYiLCJhdWQiOiI0NTk1ODg5Zi1kNGFiLTQ5MmQtOWU3OS1lZWEzMjk4YTNhNGYiLCJuYmYiOjE3NDYxMTI0MTYsInNjb3BlIjpbImN1c3RvbWVyLnJlYWQiLCJjdXN0b21lci53cml0ZSIsInJlZnVuZHMucmVhZCIsImRlc3RpbmF0aW9uLndyaXRlIiwicmVmdW5kcy53cml0ZSIsImJhbmsucmVhZCIsIndlYmhvb2sucmVhZCIsInBheW1lbnQucmVhZCIsImludGVudC53cml0ZSIsImRlc3RpbmF0aW9uLnJlYWQiLCJwYXlvdXQud3JpdGUiLCJkZXBvc2l0LnJlYWQiLCJkYXRhLnJlYWQiLCJwYXlvdXQucmVhZCIsInJlY29uY2lsaWF0aW9uLnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9hdXRoLnNhbmRib3gubGVhbnRlY2gubWUiLCJleHAiOjE3NDYxMTYwMTYsImlhdCI6MTc0NjExMjQxNiwianRpIjoiZDhmMzg1MDQtNmM3Yy00NDJjLTg3ZGQtMGRmMzhlZjM2OWVkIiwiYXBwbGljYXRpb25zIjpbeyJpZCI6IjQ1OTU4ODlmLWQ0YWItNDkyZC05ZTc5LWVlYTMyOThhM2E0ZiJ9XX0.8xZgNy_Ec8BWpdHv8jVqQ49a9gMAOa9xcNoISrVKtMJQ2Gngc7h9BW_-_zflcP22GxlT7YrDdpgqar5Tav_zSq2MedgTEcq6j8eLzzQ-IaEQlIovvMSOLyfz06uQd5VH8QRaAFIpaqrjB8BYaWGRpIx3_ubOoUdzXNY6GGGSCGbHoW4AbD9fWvpgErI_SY1IYkED_hBE7uz5y001CBcsjExgYpjDAM9yjcbm8tf54QBUs1peI5kZiZo3oZFrTDAu1Iov9ScQNnk8W0Ht24VBijOwyHecAZX5Es2LDO1gOaUYp8EgdfjjwwyoZ_qc3M-7WKusN7wP2we2Ei1pbdy-CQ',
+          'Authorization': `Bearer ${BEARER_TOKEN}`,
           'Content-Type': 'application/json',
           'Scope': 'api',
         },
         body: JSON.stringify({
-          entity_id: '03c57689-a176-4c2d-91db-d90ed7b12c0a',
-          account_id: '803fa98d-5765-43e4-ad9f-2732fb8a287c',
+          entity_id: ENTITY_ID,
+          account_id: ACCOUNT_ID,
         }),
       });
 
